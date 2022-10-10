@@ -58,16 +58,24 @@
     let words = document.querySelectorAll(".word");
   
     const animateAll = (callback) => {
-        setTimeout(() => {
-            callback(words[0]);
+        // setTimeout(() => {
+        //     callback(words[0]);
+        //     setTimeout(() => {
+        //         callback(words[1]);
+        //         setTimeout(() => {
+        //             callback(words[2]);
+        //         }, 1000)
+        //     }, 1000)
+        // }, 1000)
+        let interval = 1000;
+        for (let word of words) {
             setTimeout(() => {
-                callback(words[1]);
-                setTimeout(() => {
-                    callback(words[2]);
-                }, 1000)
-            }, 1000)
-        }, 1000)
+                callback(word);
+            }, interval);
+            interval += 1000;
+        }
     }
+
   
     const animate = (word) => {
         word.classList.add("animate");
